@@ -34,7 +34,7 @@ public class MagicSquareModel extends SquareModel {
 	public boolean isMagic() {
 		// tests if the list is valid before traversing it
 		try {
-			if (!(squareMod.length > 0 && squareMod.length == squareMod[0].length)) {
+			if (!(size > 0 && squareMod.length == squareMod[0].length)) {
 				System.out.println("Square size error");
 				return false;
 			}
@@ -43,15 +43,15 @@ public class MagicSquareModel extends SquareModel {
 			return false;
 		}
 		// integers to keep track of the values to compare to as it traverses
-		Integer[] rowVal = new Integer[squareMod.length];
+		Integer[] rowVal = new Integer[size];
 		Arrays.fill(rowVal, 0);
 		Integer diagRVal = 0, diagLVal = 0;
-		Integer[] colVal = new Integer[squareMod.length];
+		Integer[] colVal = new Integer[size];
 		Arrays.fill(colVal, 0);
 
 		// function goes through the entire 2D array and updates the values
-		for (int i = 0; i < squareMod.length; i++) {
-			for (int j = 0; j < squareMod.length; j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				// updates the array of counters in each spot
 				if (squareMod[i][j] != null) {
 					rowVal[i] += squareMod[i][j];
@@ -62,8 +62,8 @@ public class MagicSquareModel extends SquareModel {
 			if (squareMod[i][i] != null) {
 				diagRVal += squareMod[i][i];
 			}
-			if (squareMod[i][squareMod.length - 1 - i] != null) {
-				diagLVal += squareMod[i][squareMod.length - 1 - i];
+			if (squareMod[i][size - 1 - i] != null) {
+				diagLVal += squareMod[i][size - 1 - i];
 			}
 		}
 
@@ -87,7 +87,7 @@ public class MagicSquareModel extends SquareModel {
 	public boolean isNormalMagic() {
 		// tests if the list is valid before traversing it
 		try {
-			if (!(squareMod.length > 0 && squareMod.length == squareMod[0].length)) {
+			if (!(size > 0 && squareMod.length == squareMod[0].length)) {
 				System.out.println("Square size error");
 				return false;
 			}
@@ -96,18 +96,18 @@ public class MagicSquareModel extends SquareModel {
 			return false;
 		}
 		// integers to keep track of the values to compare to as it traverses
-		Integer[] rowVal = new Integer[squareMod.length];
+		Integer[] rowVal = new Integer[size];
 		Arrays.fill(rowVal, 0);
 		Integer diagRVal = 0, diagLVal = 0;
-		Integer[] colVal = new Integer[squareMod.length];
+		Integer[] colVal = new Integer[size];
 		Arrays.fill(colVal, 0);
 
 		// array that keeps track of the numbers used
-		int[] valCount = new int[squareMod.length * squareMod.length];
+		int[] valCount = new int[size * size];
 
 		// function goes through the entire 2D array and updates the values
-		for (int i = 0; i < squareMod.length; i++) {
-			for (int j = 0; j < squareMod.length; j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				// updates the array of counters in each spot
 				if (squareMod[i][j] != null) {
 					rowVal[i] += squareMod[i][j];
@@ -125,8 +125,8 @@ public class MagicSquareModel extends SquareModel {
 			if (squareMod[i][i] != null) {
 				diagRVal += squareMod[i][i];
 			}
-			if (squareMod[i][squareMod.length - 1 - i] != null) {
-				diagLVal += squareMod[i][squareMod.length - 1 - i];
+			if (squareMod[i][size - 1 - i] != null) {
+				diagLVal += squareMod[i][size - 1 - i];
 			}
 
 		}
@@ -182,7 +182,7 @@ public class MagicSquareModel extends SquareModel {
 	 */
 	@Override
 	public int getSize() {
-		return squareMod.length;
+		return size;
 	}
 
 	/**
@@ -200,7 +200,7 @@ public class MagicSquareModel extends SquareModel {
 	 */
 	@Override
 	public void clear() {
-		squareMod = new Integer[squareMod.length][squareMod.length];
+		squareMod = new Integer[size][size];
 	}
 
 	/**
@@ -216,7 +216,7 @@ public class MagicSquareModel extends SquareModel {
 	public String getValueAt(int row, int col) {
 		// checks for out of bounds errors and returns a message if so, if not displays
 		// value
-		if (row >= squareMod.length || col >= squareMod.length) {
+		if (row >= size || col >= size) {
 			return "Out of bounds";
 		} else {
 			return "" + squareMod[row][col];
@@ -238,7 +238,7 @@ public class MagicSquareModel extends SquareModel {
 		// if the input is not an integer in the form of a string it catches the error
 		// and does not change the value, or if it is out of bounds
 		try {
-			if (row >= squareMod.length || col >= squareMod.length) {
+			if (row >= size || col >= size) {
 				return;
 			} else {
 				if (data == "") {
@@ -264,8 +264,8 @@ public class MagicSquareModel extends SquareModel {
 		String temp = "";
 		// loops through every value and adds it to the string to be returned, and
 		// formats it with a line break to look like a square
-		for (int i = 0; i < squareMod.length; i++) {
-			for (int j = 0; j < squareMod.length; j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				temp += squareMod[i][j];
 			}
 			temp += "\n";
