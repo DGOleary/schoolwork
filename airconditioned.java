@@ -15,6 +15,10 @@ public class airconditioned {
 			int len = in.nextInt();
 			LinkedList<LinkedList<Integer>> rooms = new LinkedList<LinkedList<Integer>>();
 			for (int i = 0; i < len; i++) {
+				if(len==0) {
+					System.out.println(0);
+					break;
+				}
 				int a = in.nextInt();
 				int b = in.nextInt();
 				int ind = 0;
