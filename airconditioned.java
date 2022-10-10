@@ -28,7 +28,7 @@ public class airconditioned {
 						while (it.hasNext()) {
 							int start=it.next();
 							int fin=it.next();
-							if(!((a>=start&&a<=fin)||(b>=start&&b<=fin))) {
+							if(!((a>=start&&a<=fin)||(b>=start&&b<=fin)||(a<=start&&b>=fin))) {
 								ind++;
 								break;
 							}
