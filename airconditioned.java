@@ -7,7 +7,7 @@ public class airconditioned {
 		File input;
 		Scanner in= new Scanner(System.in);
 		try {
-			input = new File("2.in");
+			input = new File("1.in");
 			in = new Scanner(input);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -28,7 +28,7 @@ public class airconditioned {
 						while (it.hasNext()) {
 							int start=it.next();
 							int fin=it.next();
-							if((a>=start&&a<=fin)||(b>=start&&b<=fin)) {
+							if(!((a>=start&&a<=fin)||(b>=start&&b<=fin))) {
 								ind++;
 								break;
 							}
@@ -49,6 +49,7 @@ public class airconditioned {
 						}
 				}
 			}
+			/*
 			for(int i=0;i<rooms.size();i++) {
 				System.out.println(i);
 				for(int j=0;j<rooms.get(i).size();j++) {
@@ -56,6 +57,7 @@ public class airconditioned {
 				}
 				System.out.println();
 			}
+			*/
 			System.out.println(rooms.size());
 			in.close();
 		
